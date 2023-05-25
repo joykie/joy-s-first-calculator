@@ -1,0 +1,158 @@
+html
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <title></title>
+  </head>
+  <body>
+    <section>
+      <center>
+        <div class="">
+
+<a href="#">
+      <table border="1" class="buttons">
+        <tr>
+          <td colspan="4" id="container"></td>
+        </tr>
+        <tr class="top">
+          <td onclick="clearScr()">AC</td>
+          <td onclick="sendNum('*-1')">+/-</td>
+          <td onclick="sendNum('*0.01')">%</td>
+          <td class="operators" onclick="sendNum('/')">&#247</td>
+        </tr>
+        <tr>
+          <td class ="nums" onclick="sendNum('7')">7</td>
+          <td class ="nums" onclick="sendNum('8')">8</td>
+          <td class ="nums" onclick="sendNum('9')">9</td>
+          <td class="operators" onclick="sendNum('*')">x</td>
+        </tr>
+        <tr>
+          <td class ="nums" onclick="sendNum('4')">4</td>
+          <td class ="nums" onclick="sendNum('5')">5</td>
+          <td class ="nums" onclick="sendNum('6')">6</td>
+          <td class="operators" onclick="sendNum('-')">-</td>
+        </tr>
+        <tr>
+          <td class ="nums" onclick="sendNum('1')">1</td>
+          <td class ="nums" onclick="sendNum('2')">2</td>
+          <td class ="nums" onclick="sendNum('3')">3</td>
+          <td class="operators" onclick="sendNum('+')">+</td>
+        </tr>
+        <tr>
+          <td class ="nums" colspan="2" onclick="sendNum('0')">0</td>
+          <td class ="nums" onclick="sendNum('.')">,</td>
+          <td class="operators" onclick="equalTo()">=</td>
+        </tr>
+      </table>
+      </a>
+        </div>
+</center>
+    </section>
+    <script src="Calculator.js">
+
+    </script>
+  </body>
+</html>
+
+
+css
+
+div{
+  border-radius: 50px;
+}
+table{
+border-collapse: collapse;
+margin-top: 200px;
+border:1px solid;
+color: white;
+}
+.buttons{
+width: 300px;
+height: 300px;
+text-align: center;
+}
+.operators{
+  background-color: orange;
+  text-align: center;
+  }
+#container{
+  height: 50px;
+  background-color: #404040;
+}
+.top{
+background-color: grey;
+}
+.nums{
+  background-color: #c0c0c0;
+}
+a{
+  text-decoration: none;
+}
+
+js
+
+
+var a = '';
+var b = '';
+var num = [];
+var ans;
+
+// All the numbers and operators input will be stored in an array "num" using function "sendNum()"
+function sendNum(digit){
+
+	num.push(digit);// adding to the array
+
+	if(num.length != 1){
+		a = '';
+		document.getElementById('container').innerHTML = a;		// clearing the screen.
+	}
+
+
+	for(i=0; i<num.length ; i++){
+
+		a += num[i];				// concatenate the elements of the array "num" into a single string, which will be displayed on the screen
+
+	}
+
+document.getElementById('container').innerHTML = a;	// displaying the concatenated string
+
+
+}
+
+// when the user presses "=", function "equalTo()" is called
+function equalTo(){
+	document.getElementById('container').innerHTML = '';
+
+	for(i=0; i<num.length ; i++){
+
+		b += num[i];						// concatenating the array "num" into a single string
+	}
+
+	ans = eval(b);
+
+	document.getElementById('container').innerHTML = ans;		// result display
+
+	while(num.length > 0){
+    	num.pop();				// emptying the array "num"
+	}
+
+	num.push(ans.toString());
+
+
+}
+
+
+// When user presses "AC", function "clearScr()" is called
+function clearScr(){
+	document.getElementById('container').innerHTML = '';
+
+	while(num.length > 0){
+    	num.pop();				// emptying the array "num"
+	}
+
+	a ='';
+	b ='';
+}
