@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/tables.css">
+  </head>
+  <body>
+    <h1>Countries,Capital and Language</h1>
+    <table class="firstTab">
+      <tr id="table1">
+        <td>Country</td>
+        <td>Capital</td>
+        <td>Language</td>
+      </tr>
+      <tr id="table2">
+        <td>India</td>
+        <td>New Delhi</td>
+        <td>Hindi</td>
+      </tr>
+      <tr id="table3">
+        <td>France</td>
+        <td>Paris</td>
+        <td>French</td>
+      </tr>
+      <tr id="table4">
+        <td>New Zealand</td>
+        <td>Wellington</td>
+        <td>English</td>
+      </tr>
+    </table>
+    <footer>Copright &copy 2018 Example Organisation</footer>
+  </body>
+</html>
+
+css
+
+table
+{
+  width:500px;
+  height:400px;
+  border-spacing:0;
+}
+#table1{
+  background-color: green;
+}
+#table2
+{
+  background-color:GhostWhite;
+}
+#table3
+{
+  background-color: LightGray;
+}
+#table4
+{
+  background-color: Gray;
+}
